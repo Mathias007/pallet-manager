@@ -1,7 +1,7 @@
 {
-    "name": "pallet-manager",
+    "name": "pallet-manager-backend",
     "version": "0.0.1",
-    "description": "Serwer backendowy dla projektu Pallet Manager, napisany z wykorzystniem Node.js we frameworku Express.",
+    "description": "Serwer backendowy dla projektu Pallet Manager, napisany z wykorzystaniem Node.js we frameworku Express.",
     "main": "src/index.js",
     "license": "MIT",
     "scripts": {
