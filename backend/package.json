@@ -1,0 +1,32 @@
+{
+    "name": "pallet-manager",
+    "version": "0.0.1",
+    "description": "Serwer backendowy dla projektu Pallet Manager, napisany z wykorzystniem Node.js we frameworku Express.",
+    "main": "src/index.js",
+    "license": "MIT",
+    "scripts": {
+        "start": "babel-node src/index.js",
+        "start:dev": "nodemon --exec babel-node src/index.js",
+        "build": "babel src --out-dir dist",
+        "serve": "node dist/index.js"
+    },
+    "dependencies": {
+        "cors": "^2.8.5",
+        "body-parser": "^1.19.0",
+        "core-js": "^3.9.1",
+        "dotenv": "^9.0.2",
+        "express": "4.17.1",
+        "mongoose": "^5.12.2",
+        "@babel/cli": "^7.13.14",
+        "@babel/core": "^7.13.14",
+        "@babel/node": "^7.13.13",
+        "@babel/plugin-proposal-class-properties": "^7.13.0",
+        "@babel/plugin-proposal-export-default-from": "^7.12.13",
+        "@babel/plugin-transform-async-to-generator": "^7.13.0",
+        "@babel/polyfill": "^7.12.1",
+        "@babel/preset-env": "^7.13.12"
+    },
+    "devDependencies": {
+        "nodemon": "2.0.3"
+    }
+}
