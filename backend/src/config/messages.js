@@ -10,6 +10,10 @@ export const CASE_SUCCESS_MESSAGE = (section) => {
     return `Dane dla sekcji ${section} zostały pomyślnie załadowane.`;
 };
 
+export const DATABASE_CONNECTION_SUCCESS_MESSAGE = () => {
+    return `Połączono skutecznie z bazą danych MongoDB`;
+};
+
 export const DATABASE_CONNECTION_ERROR_MESSAGE = (error) => {
     return `Error: Could not connect to MongoDB - ${error}`;
 };
