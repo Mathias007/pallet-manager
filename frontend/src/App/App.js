@@ -1,29 +1,31 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { pallets } from "../_store/_actions";
+import { notifications } from "../_store/_actions";
 
 import "./App.css";
 
 function App() {
-    const welcome = useSelector((state) => state.pallets.welcome);
+    const notificationsList = useSelector(
+        (state) => state.notifications.notificationsList
+    );
 
-    const dispatch = useDispatch();
+   const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(pallets.showWelcomeData());
-    });
+        dispatch(notifications.showNotificationsList());
+    }, [dispatch]);
 
     return (
         <div className="App">
             <header className="App-header">
                 <button
                     aria-label="Increment value"
-                    onClick={() => console.log(welcome)}
+                    onClick={() => console.log(notificationsList)}
                 >
                     START
                 </button>
-                <span>{welcome}</span>
+                <span>123</span>
             </header>
         </div>
     );

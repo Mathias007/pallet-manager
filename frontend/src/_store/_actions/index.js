@@ -1,3 +1,3 @@
-import * as pallets from "./pallets";
+import * as notifications from "./notifications.action";
 
-export { pallets };
+export { notifications };

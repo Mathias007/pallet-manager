@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 
-import pallets from "./pallets";
+import notifications from "./notifications.reducer";
 
 const palletApp = combineReducers({
-    pallets,
+    notifications,
 });
 
 export default palletApp;
