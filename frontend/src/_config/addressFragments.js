@@ -1,12 +1,16 @@
 const addressFragments = {
     // api host
-    API_URL: process.env.PALLET_APP_API_URL,
+    API_URL: process.env.REACT_APP_API_URL,
 
     // admin panel
     ADMIN: "admin",
 
+    // notifications
+    NOTIFICATIONS: "notifications",
+
     // CRUD (common fragments)
     ADD: "add",
+    ADD_MANY: "add_many",
     EDIT: "edit",
     REMOVE: "remove",
     SINGLE: "single",
