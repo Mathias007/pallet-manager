@@ -1,5 +1,9 @@
 import cors from "cors";
 import express from "express";
+import fileUpload from "express-fileupload";
+import morgan from "morgan";
+import _ from "lodash";
+
 import mongoose from "mongoose";
 
 import routes from "./routes";
@@ -21,6 +25,12 @@ const { NODE_PORT, MONGO_URI, CORS_ORIGIN } = config;
 
 const app = express();
 
+app.use(
+    fileUpload({
+        createParentPath: true,
+    })
+);
+
 // Before build remove env cors origin (localhost) and use proper client url
 const corsOptions = {
     origin: CORS_ORIGIN || "",
@@ -32,6 +42,7 @@ app.use(
         extended: true,
     })
 );
+app.use(morgan("dev"));
 
 mongoose
     .connect(MONGO_URI, {

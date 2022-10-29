@@ -12,6 +12,7 @@ const addressFragments = {
     REMOVE: "remove",
     SINGLE: "single",
     SINGLE_KEY: "single-key",
+    UPLOAD: "upload",
 };
 
 export default addressFragments;

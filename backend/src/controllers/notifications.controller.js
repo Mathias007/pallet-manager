@@ -1,5 +1,8 @@
 import mongoose from "mongoose";
+
 import { NotificationSchema } from "../schemas/NotificationSchema";
+import { dataConverter } from "../helpers/notificationsDataConverter";
+
 import statuses from "../config/statuses";
 
 import {
@@ -63,6 +66,38 @@ export const getNotificationById = (req, res, next) => {
             });
         }
     });
+};
+
+export const uploadFileAndSaveNotifications = async (req, res, next) => {
+    try {
+        if (!req.files) {
+            res.send({
+                status: false,
+                message: "No file uploaded",
+            });
+        } else {
+            let notificationsDataFile = req.files.file;
+
+            await notificationsDataFile.mv(
+                "./uploads/" + notificationsDataFile.name
+            );
+
+            dataConverter("uploads/" + notificationsDataFile.name);
+
+            res.send({
+                status: true,
+                message:
+                    "Dane zapisane w pliku CSV zostały skutecznie przekształcone do formatu JSON i przekazane do bazy. Kopię pliku CSV zapisano na serwerze.",
+                data: {
+                    name: notificationsDataFile.name,
+                    mimetype: notificationsDataFile.mimetype,
+                    size: notificationsDataFile.size,
+                },
+            });
+        }
+    } catch (err) {
+        res.status(500).send(err);
+    }
 };
 
 export const createNotification = (req, res, next) => {

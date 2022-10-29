@@ -25,7 +25,10 @@
         "csvtojson": "^2.0.10",
         "dotenv": "^9.0.2",
         "express": "4.17.1",
-        "mongoose": "^5.12.2"
+        "express-fileupload": "^1.4.0",
+        "lodash": "^4.17.21",
+        "mongoose": "^5.12.2",
+        "morgan": "^1.10.0"
     },
     "devDependencies": {
         "nodemon": "2.0.3"

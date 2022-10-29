@@ -8,6 +8,7 @@ const {
     LIST,
     REMOVE,
     SINGLE,
+    UPLOAD,
 } = addressFragments;
 
 const routesPaths = {
@@ -17,6 +18,7 @@ const routesPaths = {
         SINGLE: `/${NOTIFICATIONS}/${SINGLE}`,
         ADD: `/${NOTIFICATIONS}/${ADD}`,
         ADD_MANY: `/${NOTIFICATIONS}/${ADD_MANY}`,
+        UPLOAD: `/${NOTIFICATIONS}/${UPLOAD}`,
         EDIT: `/${NOTIFICATIONS}/${EDIT}`,
         REMOVE: `/${NOTIFICATIONS}/${REMOVE}`,
     },
