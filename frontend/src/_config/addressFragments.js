@@ -5,7 +5,9 @@ const addressFragments = {
     // admin panel
     ADMIN: "admin",
 
-    // notifications
+    // pages
+    DASHBOARD: "dashboard",
+    TABLES: "tables",
     NOTIFICATIONS: "notifications",
 
     // CRUD (common fragments)

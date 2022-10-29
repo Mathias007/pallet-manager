@@ -1,20 +1,19 @@
 import addressFragments from "./addressFragments";
 
 const {
-    // API_URL,
+    DASHBOARD,
+    TABLES,
     NOTIFICATIONS,
-    // LIST,
     ADD,
-    // ADD_MANY,
     EDIT,
     REMOVE,
-    // SINGLE,
-    // KEY,
 } = addressFragments;
 
 const routesPaths = {
     GENERAL: {
         INDEX: "/",
+        DASHBOARD: `/${DASHBOARD}`,
+        TABLES: `/${TABLES}`,
     },
     NOTIFICATIONS: {
         MAIN: `/${NOTIFICATIONS}`,

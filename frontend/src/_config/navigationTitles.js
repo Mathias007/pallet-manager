@@ -1,6 +1,7 @@
 const navigationTitles = {
-    GENERAL_INDEX: "Strona główna",
+    INDEX: "Strona główna",
     NOTIFICATIONS: "Zgłoszenia",
+    PALLETS: "Palety",
 };
 
 export default navigationTitles;
