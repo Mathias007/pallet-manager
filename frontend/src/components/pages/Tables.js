@@ -1,9 +1,9 @@
-import { Row, Col, Card, Radio, Table, Upload, Button } from "antd";
-
-import { ToTopOutlined } from "@ant-design/icons";
-
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+
+import { Row, Col, Card, Radio, Table, Upload, Button } from "antd";
+import { ToTopOutlined } from "@ant-design/icons";
 
 import { notifications } from "../../_store/_actions";
 
@@ -53,7 +53,9 @@ function Tables() {
                                         </Radio.Button>
                                     </Radio.Group>
                                     {"      "}
-                                    <Button>Nowe zgłoszenie</Button>
+                                    <Button>
+                                        <Link to="/creator">Nowe zgłoszenie</Link>
+                                    </Button>
                                 </>
                             }
                         >

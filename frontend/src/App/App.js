@@ -9,6 +9,7 @@ import {
 import AppMain from "../components/sections/AppMain";
 import Home from "../components/pages/Home";
 import Tables from "../components/pages/Tables";
+import NotificationCreator from "../components/forms/NotificationCreator";
 
 import "antd/dist/antd.min.css";
 import "./styles/main.css";
@@ -46,6 +47,11 @@ function App() {
                             path={GENERAL.TABLES}
                             component={Tables}
                             notificationsList={notificationsList}
+                        />
+                        <Route
+                            exact
+                            path="/creator"
+                            component={NotificationCreator}
                         />
                         <Redirect from="*" to={GENERAL.DASHBOARD} />
                     </Switch>
