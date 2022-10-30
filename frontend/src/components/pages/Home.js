@@ -1,6 +1,6 @@
 import { Card, Col, Row, Typography } from "antd";
 
-import Echart from "../charts/EChart";
+import ColumnChart from "../charts/ColumnChart";
 import LineChart from "../charts/LineChart";
 
 const { Title } = Typography;
@@ -171,7 +171,7 @@ function Home() {
                         className="mb-24"
                     >
                         <Card bordered={false} className="criclebox h-full">
-                            <Echart />
+                            <ColumnChart />
                         </Card>
                     </Col>
                     <Col

@@ -66,6 +66,15 @@ export const sumQuantityOfType = (list) => {
     }, {});
 };
 
+export const sumQuantityOfArea = (list) => {
+    return list.reduce((acc, curr) => {
+        return {
+            ...acc,
+            [curr.area]: (acc[curr.area] || 0) + curr.quantity,
+        };
+    }, {});
+};
+
 export const sumTotalQuantity = (listOfTypes) => {
     let totalQuantity = 0;
 
