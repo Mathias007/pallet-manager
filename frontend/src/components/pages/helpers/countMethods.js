@@ -16,6 +16,27 @@ const DATES = {
     },
 };
 
+export const getDataBetweenDates = (inputData, minDate, maxDate) => {
+    const finalData = inputData.filter((record) => {
+        const { startDate } = record;
+        return (
+            new Date(startDate).getTime() >= new Date(minDate).getTime() &&
+            new Date(startDate).getTime() <= new Date(maxDate).getTime()
+        );
+    });
+
+    return finalData;
+};
+
+export const getDataFromSelectedMonth = (inputData, month) => {
+    const finalData = inputData.filter((record) => {
+        const { startDate } = record;
+        return new Date(startDate).getMonth() === month;
+    });
+
+    return finalData;
+};
+
 export const showLongDate = (date) =>
     new Date(date).toLocaleDateString(
         DATES.locale,

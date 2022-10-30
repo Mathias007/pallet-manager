@@ -1,32 +1,61 @@
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
 import ReactApexChart from "react-apexcharts";
 import { Typography } from "antd";
 import { MinusOutlined } from "@ant-design/icons";
-import lineChart from "./helpers/lineChart";
+
+import {
+    generateChartContent,
+    customizeChartConfiguration,
+} from "./helpers/lineChartCreator";
+
+import { notifications } from "../../_store/_actions";
+
+const { Title, Paragraph } = Typography;
 
 function LineChart() {
-    const { Title, Paragraph } = Typography;
+    const notificationsList = useSelector(
+        (state) => state.notifications.notificationsList
+    );
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(notifications.showNotificationsList());
+    }, []);
+
+    const minDate = new Date("2015, 01, 01");
+    const maxDate = new Date("2015, 12, 31");
+
+    const chartConfiguration = customizeChartConfiguration(
+        generateChartContent(minDate, maxDate, notificationsList)
+    );
 
     return (
         <>
             <div className="linechart">
                 <div>
-                    <Title level={5}>Active Users</Title>
+                    <Title level={5}>Realizacja</Title>
                     <Paragraph className="lastweek">
-                        than last week <span className="bnb2">+30%</span>
+                        Staramy się <span className="bnb2">poprawiać</span> czas
+                        realizacji usług.
                     </Paragraph>
                 </div>
                 <div className="sales">
                     <ul>
-                        <li>{<MinusOutlined />} Traffic</li>
-                        <li>{<MinusOutlined />} Sales</li>
+                        <li>{<MinusOutlined />} Liczba zgłoszeń</li>
+                        <li>
+                            {<MinusOutlined />} Średni czas realizacji palety
+                        </li>
                     </ul>
                 </div>
             </div>
 
             <ReactApexChart
                 className="full-width"
-                options={lineChart.options}
-                series={lineChart.series}
+                options={chartConfiguration.options}
+                series={chartConfiguration.series}
                 type="area"
                 height={350}
                 width={"100%"}

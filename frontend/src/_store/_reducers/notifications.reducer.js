@@ -28,7 +28,6 @@ const initialState = {
 export default function notifications(state = initialState, action) {
     switch (action.type) {
         case NOTIFICATIONS_LIST_LOADED:
-            console.log(action.data);
             return {
                 ...state,
                 ...action.data,
@@ -37,7 +36,6 @@ export default function notifications(state = initialState, action) {
             };
 
         case NOTIFICATIONS_LIST_NOT_FOUND:
-            console.log(action.data);
             return {
                 ...state,
                 ...action.data,
@@ -46,7 +44,6 @@ export default function notifications(state = initialState, action) {
             };
 
         case SINGLE_NOTIFICATION_LOADED:
-            console.log(action.data);
             return {
                 ...state,
                 ...action.data,
@@ -55,7 +52,6 @@ export default function notifications(state = initialState, action) {
             };
 
         case SINGLE_NOTIFICATION_NOT_FOUND:
-            console.log(action.data.message);
             return {
                 ...state,
                 ...action.data,
@@ -63,7 +59,6 @@ export default function notifications(state = initialState, action) {
             };
 
         case SINGLE_NOTIFICATION_ADDED:
-            console.log(action.data.message);
             return {
                 ...state,
                 ...action.data,
@@ -72,7 +67,6 @@ export default function notifications(state = initialState, action) {
             };
 
         case SINGLE_NOTIFICATION_ADDING_FAILED:
-            console.log(action.data);
             return {
                 ...state,
                 ...action.data,
@@ -81,7 +75,6 @@ export default function notifications(state = initialState, action) {
             };
 
         case MULTI_NOTIFICATIONS_ADDED:
-            console.log(action.data.message);
             return {
                 ...state,
                 ...action.data,
@@ -90,7 +83,6 @@ export default function notifications(state = initialState, action) {
             };
 
         case MULTI_NOTIFICATIONS_ADDING_FAILED:
-            console.log(action.data);
             return {
                 ...state,
                 ...action.data,
@@ -99,7 +91,6 @@ export default function notifications(state = initialState, action) {
             };
 
         case NOTIFICATION_SUCCESSFULLY_EDITED:
-            console.log(action.data);
             return {
                 ...state,
                 ...action.data,
@@ -108,7 +99,6 @@ export default function notifications(state = initialState, action) {
             };
 
         case NOTIFICATION_EDITING_FAILED:
-            console.log(action.data);
             return {
                 ...state,
                 ...action.data,
@@ -117,7 +107,6 @@ export default function notifications(state = initialState, action) {
             };
 
         case NOTIFICATION_SUCCESSFULLY_REMOVED:
-            console.log(action.data);
             return {
                 ...state,
                 ...action.data,
@@ -126,7 +115,6 @@ export default function notifications(state = initialState, action) {
             };
 
         case NOTIFICATION_REMOVING_FAILED:
-            console.log(action.data);
             return {
                 ...state,
                 ...action.data,
@@ -135,7 +123,6 @@ export default function notifications(state = initialState, action) {
             };
 
         case AUTHENTICATION_ERROR:
-            console.log(action.data.message);
             return {
                 ...state,
                 ...action.data,

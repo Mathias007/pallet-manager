@@ -44,7 +44,6 @@ function ColumnChart() {
     }
 
     for (const [key, value] of Object.entries(nofificationsByTypeObj)) {
-        console.log(value);
         notificationsByTypeArr.push(value);
     }
 
