@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
     BrowserRouter as Router,
     Switch,
@@ -15,23 +15,11 @@ import "antd/dist/antd.min.css";
 import "./styles/main.css";
 import "./styles/responsive.css";
 
-import { useSelector, useDispatch } from "react-redux";
-import { notifications } from "../_store/_actions";
-
 import routesPaths from "../_config/routesPaths";
-const { GENERAL } = routesPaths;
+
+const { GENERAL, NOTIFICATIONS } = routesPaths;
 
 function App() {
-    const notificationsList = useSelector(
-        (state) => state.notifications.notificationsList
-    );
-
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(notifications.showNotificationsList());
-    }, []);
-
     return (
         <div className="App">
             <Router>
@@ -42,15 +30,10 @@ function App() {
                             path={GENERAL.DASHBOARD}
                             component={Home}
                         />
+                        <Route exact path={GENERAL.TABLES} component={Tables} />
                         <Route
                             exact
-                            path={GENERAL.TABLES}
-                            component={Tables}
-                            notificationsList={notificationsList}
-                        />
-                        <Route
-                            exact
-                            path="/creator"
+                            path={NOTIFICATIONS.ADD}
                             component={NotificationCreator}
                         />
                         <Redirect from="*" to={GENERAL.DASHBOARD} />

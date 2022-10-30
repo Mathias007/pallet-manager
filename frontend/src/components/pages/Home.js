@@ -1,13 +1,32 @@
-import { Card, Col, Row, Typography } from "antd";
+import React, { useRef } from "react";
+import { useReactToPrint } from "react-to-print";
+
+import { Link } from "react-router-dom";
+
+import { Button, Card, Col, Row, Typography } from "antd";
 
 import ColumnChart from "../charts/ColumnChart";
 import LineChart from "../charts/LineChart";
 
 import { count } from "./helpers/homeAdditions";
 
+import routesPaths from "../../_config/routesPaths";
+const { GENERAL, NOTIFICATIONS } = routesPaths;
+
 const { Title } = Typography;
 
-function Home() {
+const Home = React.forwardRef((props, ref) => {
+    const columnChartComponentRef = useRef();
+    const lineChartComponentRef = useRef();
+
+    const handlePrintColumnChart = useReactToPrint({
+        content: () => columnChartComponentRef.current,
+    });
+
+    const handlePrintLineChart = useReactToPrint({
+        content: () => lineChartComponentRef.current,
+    });
+
     return (
         <>
             <div className="layout-content">
@@ -55,7 +74,31 @@ function Home() {
                         xl={10}
                         className="mb-24"
                     >
-                        <Card bordered={false} className="criclebox h-full">
+                        <Card
+                            bordered={false}
+                            className="criclebox h-full"
+                            ref={columnChartComponentRef}
+                            extra={
+                                <>
+                                    <Button>
+                                        <Link to={GENERAL.TABLES}>
+                                            Przejdź do zestawień
+                                        </Link>
+                                    </Button>
+                                    <Button>
+                                        <Link to={NOTIFICATIONS.ADD}>
+                                            Nowe zgłoszenie
+                                        </Link>
+                                    </Button>
+                                    <Button
+                                        onClick={handlePrintColumnChart}
+                                        type="primary"
+                                    >
+                                        Druk lub PDF
+                                    </Button>
+                                </>
+                            }
+                        >
                             <ColumnChart />
                         </Card>
                     </Col>
@@ -67,7 +110,31 @@ function Home() {
                         xl={14}
                         className="mb-24"
                     >
-                        <Card bordered={false} className="criclebox h-full">
+                        <Card
+                            bordered={false}
+                            className="criclebox h-full"
+                            ref={lineChartComponentRef}
+                            extra={
+                                <>
+                                    <Button>
+                                        <Link to={GENERAL.TABLES}>
+                                            Przejdź do zestawień
+                                        </Link>
+                                    </Button>
+                                    <Button>
+                                        <Link to={NOTIFICATIONS.ADD}>
+                                            Nowe zgłoszenie
+                                        </Link>
+                                    </Button>
+                                    <Button
+                                        onClick={handlePrintLineChart}
+                                        type="primary"
+                                    >
+                                        Druk lub PDF
+                                    </Button>
+                                </>
+                            }
+                        >
                             <LineChart />
                         </Card>
                     </Col>
@@ -75,6 +142,6 @@ function Home() {
             </div>
         </>
     );
-}
+});
 
 export default Home;

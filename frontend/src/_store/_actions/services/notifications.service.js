@@ -36,7 +36,6 @@ export const getAllNotifications = (
             }
         })
         .then((response) => {
-            console.log(response);
             if (response.status === STATUS_OK) {
                 dispatchNotificationsListLoaded(response);
             } else if (
@@ -73,7 +72,6 @@ export const getSingleNotification = (
             }
         })
         .then((response) => {
-            console.log(response);
             if (response.status === STATUS_OK) {
                 dispatchSingleNotificationLoaded(response);
             } else if (
@@ -122,7 +120,6 @@ export const addSingleNotification = (
             }
         })
         .then((response) => {
-            console.log(response);
             if (response.status === STATUS_OK) {
                 dispatchSingleNotificationAdded(response);
             } else if (
@@ -161,7 +158,6 @@ export const addManyNotifications = (
             }
         })
         .then((response) => {
-            console.log(response);
             if (response.status === STATUS_OK) {
                 dispatchManyNotificationsAdded(response);
             } else if (
@@ -212,7 +208,6 @@ export const editSelectedNotification = (
             }
         })
         .then((response) => {
-            console.log(response);
             if (response.status === STATUS_OK) {
                 dispatchNotificationEdited(response);
             } else if (
@@ -251,7 +246,6 @@ export const deleteSelectedNotification = (
             }
         })
         .then((response) => {
-            console.log(response);
             if (response.status === STATUS_OK) {
                 dispatchNotificationDeleted(response);
             } else if (
