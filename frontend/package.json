@@ -1,6 +1,6 @@
 {
     "name": "pallet-manager-frontend",
-    "version": "0.0.1",
+    "version": "0.5.0",
     "description": "Aplikacja kliencka dla projektu Pallet Manager, napisana z zastosowaniem ReactJS, w  m. in. Reduxa, Hooków oraz Routera.",
     "private": true,
     "dependencies": {
