@@ -9,11 +9,16 @@ import { ToTopOutlined } from "@ant-design/icons";
 
 import { notifications } from "../../_store/_actions";
 
-import { notificationsColumns, typesColumns } from "./helpers/tablesColumns";
 import {
     renderNotificationsList,
+    renderNotificationsColumns,
+} from "./helpers/mainTableService";
+
+import {
     renderTypesList,
-} from "./helpers/tablesGenerators";
+    renderTypesColumns,
+} from "./helpers/secondaryTableService";
+
 import { uploadProps } from "./helpers/uploadData";
 
 import routesPaths from "../../_config/routesPaths";
@@ -42,6 +47,9 @@ const Tables = React.forwardRef((props, ref) => {
         dispatch(notifications.showNotificationsList());
     }, []);
 
+    const notificationsColumns = renderNotificationsColumns(notificationsList);
+    const typesColumns = renderTypesColumns;
+
     const notificationsData = renderNotificationsList(notificationsList);
     const typesData = renderTypesList(notificationsList);
 
@@ -60,7 +68,10 @@ const Tables = React.forwardRef((props, ref) => {
                                         Nowe zgłoszenie
                                     </Link>
                                 </Button>
-                                <Button onClick={handlePrintMainTable}>
+                                <Button
+                                    onClick={handlePrintMainTable}
+                                    type="primary"
+                                >
                                     Druk lub PDF
                                 </Button>
                             </>
@@ -95,7 +106,10 @@ const Tables = React.forwardRef((props, ref) => {
                         title="Podsumowanie typów"
                         extra={
                             <>
-                                <Button onClick={handlePrintSecondaryTable}>
+                                <Button
+                                    onClick={handlePrintSecondaryTable}
+                                    type="primary"
+                                >
                                     Druk lub PDF
                                 </Button>
                             </>
