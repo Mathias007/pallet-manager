@@ -19,6 +19,7 @@ const addressFragments = {
     KEY: "key",
     LIST: "list",
     ID_PARAM: "_id",
+    UPLOAD: "upload",
 };
 
 export default addressFragments;

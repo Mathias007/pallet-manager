@@ -5,13 +5,29 @@ import { notifications } from "../../_store/_actions";
 
 import { areas, types } from "./helpers/optionsData";
 
-import { Button, DatePicker, Form, Input, InputNumber, Select } from "antd";
+import serverStatuses from "../../_config/serverStatuses";
+
+import {
+    Button,
+    DatePicker,
+    Form,
+    Input,
+    InputNumber,
+    Select,
+    message,
+} from "antd";
 
 const { Item } = Form;
 const { Option } = Select;
 
+const { STATUS_OK } = serverStatuses;
+
 const NotificationCreator = () => {
-    const message = useSelector((state) => state.notifications.errorMessage);
+    const errorMessage = useSelector(
+        (state) => state.notifications.errorMessage
+    );
+
+    const status = useSelector((state) => state.notifications.status);
 
     const dispatch = useDispatch();
 
@@ -26,7 +42,11 @@ const NotificationCreator = () => {
                 values.quantity
             )
         );
-        console.log(message);
+        if (status === STATUS_OK) {
+            message.success(
+                `${errorMessage} Zostań, aby dodać kolejne rekordy albo wróć do panelu.`
+            );
+        }
     };
 
     return (

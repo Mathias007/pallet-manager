@@ -1,8 +1,11 @@
 import { message } from "antd";
+import apiAddresses from "../../../_config/apiAddresses";
+
+const { NOTIFICATIONS } = apiAddresses;
 
 export const uploadProps = {
     name: "file",
-    action: "http://localhost:5000/notifications/upload",
+    action: NOTIFICATIONS.UPLOAD,
     headers: {
         authorization: "authorization-text",
     },
