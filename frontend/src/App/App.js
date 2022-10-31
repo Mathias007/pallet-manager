@@ -1,10 +1,5 @@
 import React from "react";
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Redirect,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import AppMain from "../components/sections/AppMain";
 import Home from "../components/pages/Home";
@@ -36,7 +31,8 @@ function App() {
                             path={NOTIFICATIONS.ADD}
                             component={NotificationCreator}
                         />
-                        <Redirect from="*" to={GENERAL.DASHBOARD} />
+                        <Route path={NOTIFICATIONS.EDIT} component={null} />
+                        <Route path={NOTIFICATIONS.REMOVE} component={null} />
                     </Switch>
                 </AppMain>
             </Router>

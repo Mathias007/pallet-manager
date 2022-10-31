@@ -7,6 +7,7 @@ const {
     ADD,
     EDIT,
     REMOVE,
+    ID_PARAM,
 } = addressFragments;
 
 const routesPaths = {
@@ -18,8 +19,8 @@ const routesPaths = {
     NOTIFICATIONS: {
         MAIN: `/${NOTIFICATIONS}`,
         ADD: `/${NOTIFICATIONS}/${ADD}`,
-        EDIT: `/${NOTIFICATIONS}/${EDIT}`,
-        REMOVE: `/${NOTIFICATIONS}/${REMOVE}`,
+        EDIT: `/${NOTIFICATIONS}/${EDIT}/:${ID_PARAM}`,
+        REMOVE: `/${NOTIFICATIONS}/${REMOVE}/:${ID_PARAM}`,
     },
 };
 

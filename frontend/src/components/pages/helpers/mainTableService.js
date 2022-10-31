@@ -1,4 +1,7 @@
-import { Button, Typography } from "antd";
+import { Button, Typography, Divider } from "antd";
+import { Link } from "react-router-dom";
+
+import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 
 import {
     showLongDate,
@@ -6,6 +9,10 @@ import {
     sumQuantityOfArea,
     getDurationInDays,
 } from "./countMethods";
+
+import addressFragments from "../../../_config/addressFragments";
+
+const { NOTIFICATIONS, EDIT, REMOVE } = addressFragments;
 
 const { Title } = Typography;
 
@@ -47,8 +54,14 @@ const renderTime = (time) => (
 
 const renderOptions = (id) => (
     <div className="ant-employed">
-        <a href={`#${id}`}>Edit</a>
-        <a href={`#${id}`}>Remove</a>
+        <Divider type="vertical" />
+        <Link to={`${NOTIFICATIONS}/${EDIT}/${id}`}>
+            <EditOutlined />
+        </Link>
+        <Divider type="vertical" />
+        <Link to={`${NOTIFICATIONS}/${REMOVE}/${id}`}>
+            <DeleteOutlined />
+        </Link>
     </div>
 );
 
