@@ -14,7 +14,7 @@ import { notifications } from "../../_store/_actions";
 
 const { Title, Paragraph } = Typography;
 
-function LineChart() {
+function LineChart({ selectedYear }) {
     const notificationsList = useSelector(
         (state) => state.notifications.notificationsList
     );
@@ -25,8 +25,8 @@ function LineChart() {
         dispatch(notifications.showNotificationsList());
     }, []);
 
-    const minDate = new Date("2015, 01, 01");
-    const maxDate = new Date("2015, 12, 31");
+    const minDate = new Date(`${selectedYear ? selectedYear : "2015"}, 01, 01`);
+    const maxDate = new Date(`${selectedYear ? selectedYear : "2015"}, 12, 31`);
 
     const chartConfiguration = customizeChartConfiguration(
         generateChartContent(minDate, maxDate, notificationsList)
@@ -36,7 +36,9 @@ function LineChart() {
         <>
             <div className="linechart">
                 <div>
-                    <Title level={5}>Realizacja</Title>
+                    <Title level={5}>
+                        Realizacja w roku {selectedYear ? selectedYear : "2015"}
+                    </Title>
                     <Paragraph className="lastweek">
                         Staramy się <span className="bnb2">poprawiać</span> czas
                         realizacji usług.

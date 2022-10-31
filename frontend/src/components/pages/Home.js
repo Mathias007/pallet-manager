@@ -1,9 +1,9 @@
-import React, { useRef } from "react";
+import React, { useState, useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 
 import { Link } from "react-router-dom";
 
-import { Button, Card, Col, Row } from "antd";
+import { Button, Card, Col, Row, DatePicker } from "antd";
 
 import ColumnChart from "../charts/ColumnChart";
 import LineChart from "../charts/LineChart";
@@ -12,6 +12,12 @@ import routesPaths from "../../_config/routesPaths";
 const { GENERAL, NOTIFICATIONS } = routesPaths;
 
 const Home = React.forwardRef((props, ref) => {
+    const [year, setYear] = useState(2015);
+
+    const onDateChange = (date, dateString) => {
+        setYear(dateString);
+    };
+
     const columnChartComponentRef = useRef();
     const lineChartComponentRef = useRef();
 
@@ -62,6 +68,11 @@ const Home = React.forwardRef((props, ref) => {
                         ref={lineChartComponentRef}
                         extra={
                             <>
+                                <DatePicker
+                                    onChange={onDateChange}
+                                    picker="year"
+                                />
+
                                 <Button>
                                     <Link to={GENERAL.TABLES}>
                                         Przejdź do zestawień
@@ -81,7 +92,7 @@ const Home = React.forwardRef((props, ref) => {
                             </>
                         }
                     >
-                        <LineChart />
+                        <LineChart selectedYear={year} />
                     </Card>
                 </Col>
             </Row>
